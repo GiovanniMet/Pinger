@@ -9,15 +9,12 @@
 
 #ce ----------------------------------------------------------------------------
 
-; Script Start - Add your code below here
+; Script Start - Don't edit if you don't know what are you doing :D
 
-; configure script
+Global Const $timeout = IniRead("settings.ini","Settings","Timeout",4)
+Global Const $pause = IniRead("settings.ini","Settings","Pause",5)
+Global Const $server = IniRead("settings.ini","Settings","Server","google.com")
 
-Global Const $timeout = 4 ; pause to wait server in second
-Global Const $pause = 5 ; pause to wait another cicle in second
-Global Const $server = "google.com" ;server to check ping
-
-;don't edit if you don't know what do!
 
 HotKeySet("{ESC}", "Terminate")
 
