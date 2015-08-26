@@ -15,6 +15,7 @@
 
 Global Const $timeout = 4 ; pause to wait server in second
 Global Const $pause = 5 ; pause to wait another cicle in second
+Global Const $server = "google.com" ;server to check ping
 
 ;don't edit if you don't know what do!
 
@@ -25,7 +26,7 @@ Main()
 Func Main()
 
    While True
-	  Local $ping = Ping("google.it", $timeout * 1000)
+	  Local $ping = Ping($server, $timeout * 1000)
 	  Local $line = "Time(h-m-s): " & @HOUR & "-" & @MIN & "-" & @SEC & " : Ping = " & $ping & " ms."
 	  FileWriteLine("ping-"& @MDAY & "-" & @MON &".txt", $line)
 	  Sleep ($pause * 1000)
