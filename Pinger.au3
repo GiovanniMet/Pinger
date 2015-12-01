@@ -14,6 +14,7 @@
 Global Const $timeout = IniRead("settings.ini","Settings","Timeout",4)
 Global Const $pause = IniRead("settings.ini","Settings","Pause",5)
 Global Const $server = IniRead("settings.ini","Settings","Server","google.com")
+Global Const $mping = IniRead("settings.ini","Settings","Ping","0")
 
 
 HotKeySet("{ESC}", "Terminate")
@@ -25,7 +26,9 @@ Func Main()
    While True
 	  Local $ping = Ping($server, $timeout * 1000)
 	  Local $line = "Time(h-m-s): " & @HOUR & "-" & @MIN & "-" & @SEC & " : Ping = " & $ping & " ms."
-	  FileWriteLine("ping-"& @MDAY & "-" & @MON &".txt", $line)
+	  if($ping>$mping)Then
+		 FileWriteLine("ping-"& @MDAY & "-" & @MON &".txt", $line)
+	  EndIf
 	  Sleep ($pause * 1000)
    WEnd
 
